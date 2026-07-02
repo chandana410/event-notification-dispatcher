@@ -12,6 +12,18 @@ app.use((err, req, res, next) => {
   next(err);
 });
 
+app.get('/', (req, res) => {
+  res.json({
+    service: 'Event-Driven Notification Dispatcher',
+    status: 'running',
+    version: '1.0.0',
+    endpoints: {
+      post_event: 'POST /api/v1/events',
+    },
+    description: 'Accepts business events and processes notifications asynchronously via an in-memory queue.',
+  });
+});
+
 app.use('/api/v1', eventRoutes);
 
 app.use((req, res) => {
