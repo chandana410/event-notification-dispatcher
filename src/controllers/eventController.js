@@ -10,10 +10,10 @@ async function handleEvent(req, res) {
       return res.status(400).json({ error: 'event_type and recipient are required' });
     }
 
-    const event = saveEvent(event_type, { recipient, data });
+    const event = await saveEvent(event_type, { recipient, data });
     const event_id = event.id;
 
-    const notification = createNotification(event_id, recipient, 'email');
+    const notification = await createNotification(event_id, recipient, 'email');
     const notification_id = notification.id;
 
     enqueue({ notification_id, recipient, event_type });

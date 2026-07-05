@@ -10,7 +10,7 @@ A lightweight asynchronous notification system built with Express.js, Node.js, a
 |---|---|
 | Runtime | Node.js (≥ 18) |
 | Framework | Express.js |
-| Database | SQLite via `better-sqlite3` |
+| Database | SQLite via `sqlite3` |
 | Queue | Native JS array-based in-memory queue |
 | Config | `dotenv` |
 
